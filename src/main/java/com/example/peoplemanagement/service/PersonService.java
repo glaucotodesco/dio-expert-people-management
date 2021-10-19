@@ -19,6 +19,7 @@ import com.example.peoplemanagement.repository.PersonRepository;
 
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonService {
 
     @Autowired
