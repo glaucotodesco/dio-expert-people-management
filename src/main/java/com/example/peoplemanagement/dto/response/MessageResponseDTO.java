@@ -1,4 +1,4 @@
-package com.example.peoplemanagement.dto;
+package com.example.peoplemanagement.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
