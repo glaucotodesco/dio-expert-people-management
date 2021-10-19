@@ -3,6 +3,7 @@ package com.example.peoplemanagement.controller;
 import com.example.peoplemanagement.dto.MessageResponseDTO;
 import com.example.peoplemanagement.entity.Person;
 import com.example.peoplemanagement.repository.PersonRepository;
+import com.example.peoplemanagement.service.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,22 +19,20 @@ import org.springframework.http.HttpStatus;
 public class PersonController {
 
     
-    private PersonRepository personRepository;
+    
+
+    private PersonService personService;
 
     @Autowired
-    public PersonController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public PersonController(PersonService personService) {
+       this.personService = personService;
 
     }
     
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createPerson(@RequestBody Person person){
-        personRepository.save(person);
-        
-        return MessageResponseDTO.builder()
-                                 .message("Created person with ID" + person.getId())
-                                 .build();
+        return   personService.create(person);
     }
 
 
