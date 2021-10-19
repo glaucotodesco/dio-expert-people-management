@@ -18,9 +18,6 @@ import org.springframework.http.HttpStatus;
 @RequestMapping("/api/v1/people")
 public class PersonController {
 
-    
-    
-
     private PersonService personService;
 
     @Autowired
